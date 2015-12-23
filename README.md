@@ -11,6 +11,6 @@ s.Push("some value")
 s.Push(true)
 s.Push(3.14)
 // ...
-for e := s.Top(); s.Size() > 0; e = s.Pop() {
+for e := s.Top(); s.Size() > 0; e = s.Rop() {
   //do something with e
 }
