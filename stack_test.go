@@ -53,3 +53,18 @@ func TestPushClear(t *testing.T) {
 		t.Fatalf("Clear() didn't clear the stack!")
 	}
 }
+
+func TestForLoop(t *testing.T) {
+	s := New()
+	i := 0
+	test := []interface{}{nil, 0, true, 'c', "d", 4.5, nil, "element"}
+	for _, e := range test {
+		s.Push(e)
+	}
+	for s.Top(); s.Size() > 0; s.Rop() {
+		i++
+	}
+	if i != len(test) {
+		t.Fatalf("For loop, had %v/%v iterations", i, len(test))
+	}
+}
