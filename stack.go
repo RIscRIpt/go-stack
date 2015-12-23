@@ -38,3 +38,9 @@ func (s *stack) Pop() (value interface{}) {
 	}
 	return
 }
+
+func (s *stack) Clear() {
+	//TODO: Make sure gc cleans up memory pointed by s.top!
+	s.top = nil
+	s.size = 0
+}
