@@ -25,7 +25,7 @@ func (s *Stack) Push(value interface{}) {
 }
 
 func (s *Stack) Top() (value interface{}) {
-	if s.size > 0 {
+	if s.top != nil {
 		value = s.top.value
 	}
 	return
@@ -37,6 +37,11 @@ func (s *Stack) Pop() (value interface{}) {
 		s.size--
 	}
 	return
+}
+
+func (s *Stack) Rop() interface{} {
+	s.Pop()
+	return s.Top()
 }
 
 func (s *Stack) Clear() {
