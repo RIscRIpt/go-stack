@@ -43,3 +43,13 @@ func TestPushPop(t *testing.T) {
 		}
 	}
 }
+
+func TestPushClear(t *testing.T) {
+	s := New()
+	s.Push(3.14)
+	s.Push(2.72)
+	s.Clear()
+	if s.Size() != 0 {
+		t.Fatalf("Clear() didn't clear the stack!")
+	}
+}
