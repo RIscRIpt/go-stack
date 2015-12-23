@@ -1,6 +1,6 @@
 package stack
 
-type stack struct {
+type Stack struct {
 	top  *element
 	size uint
 }
@@ -10,13 +10,13 @@ type element struct {
 	next  *element
 }
 
-func New() *stack {
-	return &stack{}
+func New() *Stack {
+	return &Stack{}
 }
 
-func (s *stack) Size() uint { return s.size }
+func (s *Stack) Size() uint { return s.size }
 
-func (s *stack) Push(value interface{}) {
+func (s *Stack) Push(value interface{}) {
 	s.top = &element{
 		value: value,
 		next:  s.top,
@@ -24,14 +24,14 @@ func (s *stack) Push(value interface{}) {
 	s.size++
 }
 
-func (s *stack) Top() (value interface{}) {
+func (s *Stack) Top() (value interface{}) {
 	if s.size > 0 {
 		value = s.top.value
 	}
 	return
 }
 
-func (s *stack) Pop() (value interface{}) {
+func (s *Stack) Pop() (value interface{}) {
 	if s.size > 0 {
 		value, s.top = s.top.value, s.top.next
 		s.size--
@@ -39,7 +39,7 @@ func (s *stack) Pop() (value interface{}) {
 	return
 }
 
-func (s *stack) Clear() {
+func (s *Stack) Clear() {
 	//TODO: Make sure gc cleans up memory pointed by s.top!
 	s.top = nil
 	s.size = 0
